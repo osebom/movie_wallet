@@ -192,6 +192,16 @@ body {
     display: none;
 }
 
+.ticket:nth-child(5) {
+    background: url('matrixes.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.ticket:nth-child(5) .glass-overlay {
+    display: none;
+}
+
 .ticket:hover {
     transform: translateY(-3px);
     box-shadow: 
