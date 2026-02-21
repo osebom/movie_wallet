@@ -7,26 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="iphone-frame">
-            <div class="iphone-notch"></div>
-            <div class="iphone-screen">
-                <div class="wallet-app">
-                    <div class="wallet-header">
-                        <h1>My Movies</h1>
-                        <div class="wallet-status-bar">
-                            <span class="time">9:41</span>
-                            <div class="status-icons">
-                                <span class="signal">●●●●</span>
-                                <span class="wifi">📶</span>
-                                <span class="battery">🔋</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="movies-container">
-                        <div class="ticket" data-movie="1">
-                            <div class="ticket-notch"></div>
+    <div class="wallet-app">
+        <!-- Home view: Wallet-style header + stacked cards -->
+        <div class="view view--home is-active" id="homeView">
+            <header class="home-header">
+                <h1 class="home-title">Wallet</h1>
+            </header>
+            <div class="cards-stack" id="cardsStack"></div>
+        </div>
+
+        <!-- Detail view: back button + single card with hover/tilt -->
+        <div class="view view--detail" id="detailView">
+            <header class="wallet-header">
+                <button type="button" class="back-btn" id="backBtn" aria-label="Back to My Wallets">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <p class="instruction instruction--desktop">Move your cursor over the card</p>
+                <p class="instruction instruction--mobile">Tilt your phone to move the card</p>
+                <p class="instruction instruction--ios-hint" id="iosHint">Tap screen to enable motion</p>
+            </header>
+
+            <main class="wallet-main">
+                <div class="card-stage" id="cardStage">
+                    <div class="card" id="walletCard" data-index="0">
+                        <div class="card-inner">
                             <div class="ticket-logo">
                                 <img src="cinplex.png" alt="Cineplex">
                             </div>
@@ -38,8 +42,7 @@
                                 <div class="ticket-type-label">TICKET TYPE</div>
                                 <div class="ticket-type-value">IMAX General</div>
                             </div>
-                            <div class="ticket-content">
-                            </div>
+                            <div class="ticket-content"></div>
                             <div class="ticket-qr">
                                 <img src="qrcode.png" alt="QR Code">
                             </div>
@@ -49,112 +52,29 @@
                             </div>
                             <div class="glass-overlay"></div>
                         </div>
-                        
-                        <div class="ticket" data-movie="2">
-                            <div class="ticket-notch"></div>
-                            <div class="ticket-logo">
-                                <img src="cinplex.png" alt="Cineplex">
-                            </div>
-                            <div class="ticket-date-time">
-                                <div class="ticket-date">SAT, DEC 16</div>
-                                <div class="ticket-time">9:15PM</div>
-                            </div>
-                            <div class="ticket-type">
-                                <div class="ticket-type-label">TICKET TYPE</div>
-                                <div class="ticket-type-value">Standard</div>
-                            </div>
-                            <div class="ticket-content">
-                            </div>
-                            <div class="ticket-qr">
-                                <img src="qrcode.png" alt="QR Code">
-                            </div>
-                            <div class="ticket-seat">
-                                <div class="seat-label">SEAT</div>
-                                <div class="seat-number">B-8</div>
-                            </div>
-                            <div class="glass-overlay"></div>
-                        </div>
-                        
-                        <div class="ticket" data-movie="3">
-                            <div class="ticket-notch"></div>
-                            <div class="ticket-logo">
-                                <img src="cinplex.png" alt="Cineplex">
-                            </div>
-                            <div class="ticket-date-time">
-                                <div class="ticket-date">SUN, DEC 17</div>
-                                <div class="ticket-time">6:00PM</div>
-                            </div>
-                            <div class="ticket-type">
-                                <div class="ticket-type-label">TICKET TYPE</div>
-                                <div class="ticket-type-value">IMAX General</div>
-                            </div>
-                            <div class="ticket-content">
-                            </div>
-                            <div class="ticket-qr">
-                                <img src="qrcode.png" alt="QR Code">
-                            </div>
-                            <div class="ticket-seat">
-                                <div class="seat-label">SEAT</div>
-                                <div class="seat-number">C-15</div>
-                            </div>
-                            <div class="glass-overlay"></div>
-                        </div>
-                        
-                        <div class="ticket" data-movie="4">
-                            <div class="ticket-notch"></div>
-                            <div class="ticket-logo">
-                                <img src="cinplex.png" alt="Cineplex">
-                            </div>
-                            <div class="ticket-date-time">
-                                <div class="ticket-date">MON, DEC 18</div>
-                                <div class="ticket-time">8:45PM</div>
-                            </div>
-                            <div class="ticket-type">
-                                <div class="ticket-type-label">TICKET TYPE</div>
-                                <div class="ticket-type-value">Premium</div>
-                            </div>
-                            <div class="ticket-content">
-                            </div>
-                            <div class="ticket-qr">
-                                <img src="qrcode.png" alt="QR Code">
-                            </div>
-                            <div class="ticket-seat">
-                                <div class="seat-label">SEAT</div>
-                                <div class="seat-number">D-5</div>
-                            </div>
-                            <div class="glass-overlay"></div>
-                        </div>
-                        
-                        <div class="ticket" data-movie="5">
-                            <div class="ticket-notch"></div>
-                            <div class="ticket-logo">
-                                <img src="cinplex.png" alt="Cineplex">
-                            </div>
-                            <div class="ticket-date-time">
-                                <div class="ticket-date">TUE, DEC 19</div>
-                                <div class="ticket-time">10:00PM</div>
-                            </div>
-                            <div class="ticket-type">
-                                <div class="ticket-type-label">TICKET TYPE</div>
-                                <div class="ticket-type-value">IMAX General</div>
-                            </div>
-                            <div class="ticket-content">
-                            </div>
-                            <div class="ticket-qr">
-                                <img src="qrcode.png" alt="QR Code">
-                            </div>
-                            <div class="ticket-seat">
-                                <div class="seat-label">SEAT</div>
-                                <div class="seat-number">E-9</div>
-                            </div>
-                            <div class="glass-overlay"></div>
-                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="card-dots" id="cardDots" aria-hidden="true">
+                    <button type="button" class="dot is-active" data-index="0" aria-label="Card 1"></button>
+                    <button type="button" class="dot" data-index="1" aria-label="Card 2"></button>
+                    <button type="button" class="dot" data-index="2" aria-label="Card 3"></button>
+                    <button type="button" class="dot" data-index="3" aria-label="Card 4"></button>
+                    <button type="button" class="dot" data-index="4" aria-label="Card 5"></button>
+                </div>
+            </main>
         </div>
+
+        <script type="application/json" id="cardsDataJson">
+        [
+            {"bg": "frankenstein.png", "date": "FRI, DEC 15", "time": "7:30PM", "seat": "A-12", "type": "IMAX General"},
+            {"bg": "aliens.jpeg", "date": "SAT, DEC 16", "time": "9:15PM", "seat": "B-8", "type": "Standard"},
+            {"bg": "starwars.jpeg", "date": "SUN, DEC 17", "time": "6:00PM", "seat": "C-15", "type": "IMAX General"},
+            {"bg": "avenger.jpeg", "date": "MON, DEC 18", "time": "8:45PM", "seat": "D-5", "type": "Premium"},
+            {"bg": "matrixes.jpeg", "date": "TUE, DEC 19", "time": "10:00PM", "seat": "E-9", "type": "IMAX General"}
+        ]
+        </script>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
